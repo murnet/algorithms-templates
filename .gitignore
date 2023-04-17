@@ -2,3 +2,12 @@
 *.swp
 .idea
 run.sh
+.venv
+.idea/
+cpp
+csharp
+go
+java
+js
+kotlin
+swift
