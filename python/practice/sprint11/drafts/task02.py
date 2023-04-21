@@ -13,10 +13,6 @@ def check_parity(arr: list) -> bool:
 
 
 if __name__ == '__main__':
-    data_list = [
-        [7, 11, 7],
-        [1, 2, -3],
-        [6, -2, 0]
-    ]
+    data_list = [[7, 11, 7], [1, 2, -3], [6, -2, 0]]
     for data in data_list:
         check_parity(data)

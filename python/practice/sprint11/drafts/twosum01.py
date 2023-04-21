@@ -7,7 +7,7 @@ def two_sum(nums, X):
 
 def two_sum_01(nums, X):
     for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
+        for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == X:
                 return nums[i], nums[j]
     return None

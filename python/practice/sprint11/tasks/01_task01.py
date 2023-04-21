@@ -27,6 +27,7 @@
 '''
 import sys
 
+
 def evaluate_function(a: int, b: int, c: int, x: int) -> int:
     # Здесь реализация вашего решения
     return a * x**2 + b * x + c

@@ -67,5 +67,6 @@ def read_input() -> Tuple[List[List[int]], int, int]:
     col = int(input())
     return matrix, row, col
 
+
 matrix, row, col = read_input()
 print(" ".join(map(str, get_neighbours(matrix, row, col))))

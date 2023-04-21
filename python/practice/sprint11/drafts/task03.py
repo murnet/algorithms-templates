@@ -1,11 +1,6 @@
 from typing import List
 
-matrix = [
-    [1, 2, 3],
-    [0, 2, 6],
-    [7, 4, 1],
-    [2, 7, 0]
-]
+matrix = [[1, 2, 3], [0, 2, 6], [7, 4, 1], [2, 7, 0]]
 n = 4
 m = 3
 row = 1
@@ -21,8 +16,9 @@ b = matrix[row][col + 1]
 m = 3
 
 
-def get_neighbours_old(matrix: List[List[int]], row: int, col: int) -> List[
-    int]:
+def get_neighbours_old(
+    matrix: List[List[int]], row: int, col: int
+) -> List[int]:
     # Здесь реализация вашего решения
     if row == len(matrix) - 1 and len(matrix) > 2:
         if col == len(matrix[row]) - 1:

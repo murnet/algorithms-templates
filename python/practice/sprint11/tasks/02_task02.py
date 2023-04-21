@@ -29,7 +29,7 @@ WIN
 
 
 def check_parity(a: int, b: int, c: int) -> bool:
-    data = [a,b,c]
+    data = [a, b, c]
     even = [i for i in data if abs(i) % 2 == 0]
     odd = [i for i in data if abs(i) % 2 != 0]
     if len(even) == 3:
