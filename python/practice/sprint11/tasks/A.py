@@ -1,4 +1,5 @@
-# ID посылки - 86102271
+# ID посылки - 86244249
+
 
 def find_shortest_path_to_wastelands(street_length, street):
     left = [10**6] * street_length
@@ -27,5 +28,6 @@ def read_input():
     return length, street
 
 
-n, arr = read_input()
-print(find_shortest_path_to_wastelands(n, arr))
+if __name__ == '__main__':
+    n, arr = read_input()
+    print(find_shortest_path_to_wastelands(n, arr))

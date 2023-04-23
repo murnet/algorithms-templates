@@ -9,21 +9,21 @@ def get_data(matrix):
     return result
 
 
-def check_hits(k):
+def check_hits(k, matrix):
     data = get_data(matrix)
     count = 0
     for _, value in data.items():
-        if 0 < value <= k:
+        if 0 < value <= k * 2:
             count += 1
     return count
 
 
-k = 3
-matrix = [
+k_value = 3
+arr = [
     [1, 2, 3, 1],
     [2, 0, 0, 2],
     [2, 0, 0, 2],
     [2, 0, 0, 2]
 ]
 
-print(check_hits(k))
+print(check_hits(k_value, arr))
