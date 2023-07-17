@@ -1,4 +1,5 @@
 from collections import deque
+
 OPENING_BRACKETS = ['(', '[', '{']
 CLOSING_BRACKETS = [')', ']', '}']
 
@@ -33,4 +34,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
