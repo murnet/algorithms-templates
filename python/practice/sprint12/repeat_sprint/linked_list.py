@@ -26,7 +26,7 @@ def insert_node(head, index, value):
     if index == 0:
         new_node.next_item = head
         return new_node
-    previous_node = get_node_by_index(head, index-1)
+    previous_node = get_node_by_index(head, index - 1)
     new_node.next_item = previous_node.next_item
     previous_node.next_item = new_node
     return head
@@ -34,7 +34,28 @@ def insert_node(head, index, value):
 
 def delete_node(head, index):
     if index == 0:
+        if head is None:
+            return None
+        else:
+            new_head = head.next_item
+            head.next_item = None
+            return new_head
 
+    previous_node = get_node_by_index(head, index - 1)
+    if previous_node is None or previous_node.next_item is None:
+        return head
+    previous_node.next_item = previous_node.next_item.next_item
+    return head
+
+
+def get_index(head, value):
+    index = 0
+    while head is not None:
+        if head.value == value:
+            return index
+        head = head.next_item
+        index += 1
+    return -1
 
 
 if __name__ == '__main__':

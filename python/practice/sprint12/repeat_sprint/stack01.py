@@ -6,7 +6,9 @@ class Stack:
         self.items.append(item)
 
     def pop(self):
-        return self.items.pop()
+        if self.size() > 0:
+            return self.items.pop()
+        return 'Stack is empty.'
 
     def peek(self):
         return self.items[-1]
@@ -17,8 +19,7 @@ class Stack:
     def is_empty(self):
         if self.size() == 0:
             return True
-        else:
-            return False
+        return False
 
 
 if __name__ == '__name__':
