@@ -1,6 +1,7 @@
-# ID посылки -
+# ID посылки - 89259718
 class DequeIsFullError(Exception):
     """Exception raised if deque is full."""
+
     def __init__(self, message='Deque is full'):
         self.message = message
         super().__init__(self.message)
@@ -8,6 +9,7 @@ class DequeIsFullError(Exception):
 
 class DequeIsEmptyError(Exception):
     """Exception raised if deque is empty."""
+
     def __init__(self, message='Deque is empty'):
         self.message = message
         super().__init__(self.message)
@@ -59,35 +61,24 @@ class Deque:
         return value
 
 
-def read_input():
-    number_of_commands = int(input())
-    deque_max_size = int(input())
-    commands = [input().strip() for _ in range(number_of_commands)]
-    return deque_max_size, commands
-
-
 def print_out(size, commands):
-    dek = Deque(size)
-    commands_dict = {
-        'push_front': dek.push_front,
-        'push_back': dek.push_back,
-        'pop_front': dek.pop_front,
-        'pop_back': dek.pop_back,
-    }
+    deque = Deque(size)
     for cmd in commands:
         if cmd.startswith('push'):
             command, value = cmd.split()
             try:
-                commands_dict[command](value)
+                getattr(deque, command)(value)
             except (DequeIsEmptyError, DequeIsFullError):
                 print('error')
         else:
             try:
-                print(commands_dict[cmd]())
+                print(getattr(deque, cmd)())
             except (DequeIsEmptyError, DequeIsFullError):
                 print('error')
 
 
 if __name__ == '__main__':
-    deque_size, cmds = read_input()
-    print_out(deque_size, cmds)
+    number_of_commands = int(input())
+    deque_max_size = int(input())
+    commands_list = [input().strip() for _ in range(number_of_commands)]
+    print_out(deque_max_size, commands_list)
