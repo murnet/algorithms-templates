@@ -1,3 +1,4 @@
+# ID посылки - 89256461
 class Deque:
     def __init__(self, limit):
         self.items = [None] * limit
@@ -64,13 +65,13 @@ def print_out(size, commands):
             command, value = cmd.split()
             try:
                 commands_dict[command](value)
-            except Exception as e:
-                print(str(e))
+            except Exception as error:
+                print(error)
         else:
             try:
                 print(commands_dict[cmd]())
-            except Exception as e:
-                print(str(e))
+            except Exception as error:
+                print(error)
 
 
 if __name__ == '__main__':
