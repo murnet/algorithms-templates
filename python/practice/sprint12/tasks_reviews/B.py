@@ -1,23 +1,30 @@
-# ID посылки - 89257283
+# ID посылки -
+class StackIsEmptyError(Exception):
+    """Exception raised if stack is empty."""
+
+    def __init__(self, message='Stack is empty'):
+        self.message = message
+        super().__init__(self.message)
+
+
 class Stack:
     def __init__(self):
-        self.items = []
+        self._items = []
 
     def is_empty(self):
-        return len(self.items) == 0
+        return len(self._items) == 0
 
     def push(self, item):
-        self.items.append(item)
+        self._items.append(item)
 
     def pop(self):
         if not self.is_empty():
-            return self.items.pop()
-        else:
-            raise IndexError('error')
+            return self._items.pop()
+        raise StackIsEmptyError
 
     def peek(self):
         if not self.is_empty():
-            return self.items[-1]
+            return self._items[-1]
         else:
             return None
 
@@ -52,11 +59,6 @@ def calculator(data):
     return stack.peek()
 
 
-def read_input():
-    data_string = input()
-    return data_string
-
-
 if __name__ == '__main__':
-    data_input = read_input()
-    print(calculator(data_input))
+    data_string = input()
+    print(calculator(data_string))
