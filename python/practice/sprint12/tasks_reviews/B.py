@@ -1,4 +1,4 @@
-# ID посылки -
+# ID посылки - 89260233
 class StackIsEmptyError(Exception):
     """Exception raised if stack is empty."""
 
@@ -21,12 +21,6 @@ class Stack:
         if not self.is_empty():
             return self._items.pop()
         raise StackIsEmptyError
-
-    def peek(self):
-        if not self.is_empty():
-            return self._items[-1]
-        else:
-            return None
 
 
 operators = {
@@ -52,7 +46,7 @@ def calculator(data):
         else:
             raise Exception('something went wrong(:')
 
-    return stack.peek()
+    return stack.pop()
 
 
 if __name__ == '__main__':
