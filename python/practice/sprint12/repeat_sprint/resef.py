@@ -1,2 +1,0 @@
-def ya(item):
-    adsfa
