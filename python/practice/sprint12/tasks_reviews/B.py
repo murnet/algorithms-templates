@@ -29,10 +29,6 @@ class Stack:
             return None
 
 
-def is_operator(items):
-    return items in '+-*/'
-
-
 operators = {
     '+': lambda x, y: x + y,
     '-': lambda x, y: x - y,
@@ -48,7 +44,7 @@ def calculator(data):
     for item in data:
         if item.isdigit() or (item.startswith('-') and item[1:].isdigit()):
             stack.push(int(item))
-        elif is_operator(item):
+        elif item in '+-*/':
             operand2 = stack.pop()
             operand1 = stack.pop()
             result = operators[item](operand1, operand2)
