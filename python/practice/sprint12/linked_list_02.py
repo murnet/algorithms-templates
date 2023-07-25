@@ -29,4 +29,4 @@ if __name__ == '__main__':
     head = LinkedListNode(
         5, LinkedListNode(8, LinkedListNode(12, LinkedListNode(3, None)))
     )
-    # print(head)
+    # print(_head)

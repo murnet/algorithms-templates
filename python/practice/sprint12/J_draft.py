@@ -42,7 +42,7 @@ class Queue:
             self.tail = self.head
         else:
             self.head.next_item = Node(value=x)
-            # self.tail.next_item.next_item = self.head
+            # self._tail.next_item.next_item = self._head
         self.q_size += 1
 
     def size(self):
@@ -59,7 +59,7 @@ def print_out(commands):
             queue.put(value)
         elif cmd == 'get':
             print(queue.get())
-        elif cmd == 'size':
+        elif cmd == '_size':
             print(queue.size())
 
 
@@ -86,13 +86,13 @@ def main():
     put -34
     put -23
     get
-    size
+    _size
     get
-    size
+    _size
     get
     get
     put 80
-    size
+    _size
     '''
     print_out(get_data(data))
     # print(get_data(data))

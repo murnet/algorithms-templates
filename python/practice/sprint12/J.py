@@ -50,7 +50,7 @@ def print_out(commands):
             queue.put(value)
         elif cmd == 'get':
             print(queue.get())
-        elif cmd == 'size':
+        elif cmd == '_size':
             print(queue.size())
 
 

@@ -40,7 +40,7 @@ def print_out(commands, size):
             queue.push(value)
         elif cmd == 'peek':
             print(queue.peek())
-        elif cmd == 'size':
+        elif cmd == '_size':
             print(queue.size)
         elif cmd == 'pop':
             print(queue.pop())
@@ -65,10 +65,10 @@ if __name__ == '__main__':
     #     'push 5',
     #     'push 2',
     #     'peek',
-    #     'size',
-    #     'size',
+    #     '_size',
+    #     '_size',
     #     'push 1',
-    #     'size',
+    #     '_size',
     # ]
     # queue_length = 2
     # print_out(queue_cmd, queue_length)

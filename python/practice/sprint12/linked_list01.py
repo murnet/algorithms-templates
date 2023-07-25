@@ -63,8 +63,8 @@ if __name__ == '__main__':
     # print_linked_list(n1)
     # print_linked_list(n3)
     # node, index, value = n1, 2, 'new_node'
-    # head = insert_node(node, index, value)
-    # print_linked_list(head)
+    # _head = insert_node(node, index, value)
+    # print_linked_list(_head)
     node3 = Node("node3", None)
     node2 = Node("node2", node3)
     node1 = Node("node1", node2)
