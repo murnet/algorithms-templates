@@ -1,4 +1,4 @@
-class Deque:
+class Deq:
     def __init__(self, limit):
         self.items = [None] * limit
         self.limit = limit
@@ -44,15 +44,19 @@ class Deque:
         return value
 
 
-def read_input():
-    number_of_commands = int(input())
-    deque_max_size = int(input())
-    commands = [input().strip() for _ in range(number_of_commands)]
-    return deque_max_size, commands
+def parse_data(data):
+    nums = []
+    commands = []
+    for line in data.strip().splitlines():
+        if line.isdecimal():
+            nums.append(int(line.strip()))
+        else:
+            commands.append(line.strip())
+    return nums, commands
 
 
-def print_out(size, commands):
-    dek = Deque(size)
+def print_out(nums, commands):
+    dek = Deq(nums[-1])
     commands_dict = {
         'push_front': dek.push_front,
         'push_back': dek.push_back,
@@ -74,5 +78,31 @@ def print_out(size, commands):
 
 
 if __name__ == '__main__':
-    deque_size, cmds = read_input()
-    print_out(deque_size, cmds)
+    data_1 = '''4
+4
+push_front 861
+push_front -819
+pop_back
+pop_back
+'''
+    data_2 = '''7
+10
+push_front -855
+push_front 0
+pop_back
+pop_back
+push_back 844
+pop_back
+push_back 823
+'''
+    data_3 = '''6
+6
+push_front -201
+push_back 959
+push_back 102
+push_front 20
+pop_front
+pop_back
+'''
+    num, cmds = parse_data(data_2)
+    print_out(num, cmds)

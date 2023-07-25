@@ -14,21 +14,21 @@ class Deque:
 
     def push_back(self, value):
         if self.is_full():
-            raise Exception('error')
+            raise Exception("Deque is full, cannot push_back.")
         self.items[self.tail] = value
         self.tail = (self.tail + 1) % self.limit
         self.size += 1
 
     def push_front(self, value):
         if self.is_full():
-            raise Exception('error')
+            raise Exception("Deque is full, cannot push_front.")
         self.head = (self.head - 1) % self.limit
         self.items[self.head] = value
         self.size += 1
 
     def pop_front(self):
         if self.is_empty():
-            raise Exception('error')
+            raise Exception("Deque is empty, cannot pop_front.")
         value = self.items[self.head]
         self.head = (self.head + 1) % self.limit
         self.size -= 1
@@ -36,7 +36,7 @@ class Deque:
 
     def pop_back(self):
         if self.is_empty():
-            raise Exception('error')
+            raise Exception("Deque is empty, cannot pop_back.")
         self.tail = (self.tail - 1) % self.limit
         value = self.items[self.tail]
         self.items[self.tail] = None
@@ -64,11 +64,13 @@ def print_out(size, commands):
             command, value = cmd.split()
             try:
                 commands_dict[command](value)
+                print("Element '{}' was pushed successfully.".format(value))
             except Exception as e:
                 print(str(e))
         else:
             try:
-                print(commands_dict[cmd]())
+                result = commands_dict[cmd]()
+                print("Popped element: {}".format(result))
             except Exception as e:
                 print(str(e))
 
