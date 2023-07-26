@@ -1,18 +1,14 @@
-# ID посылки - 89259718
+# ID посылки - 89275573
 class DequeIsFullError(Exception):
     """Exception raised if deque is full."""
 
-    def __init__(self, message='Deque is full'):
-        self.message = message
-        super().__init__(self.message)
+    pass
 
 
 class DequeIsEmptyError(Exception):
     """Exception raised if deque is empty."""
 
-    def __init__(self, message='Deque is empty'):
-        self.message = message
-        super().__init__(self.message)
+    pass
 
 
 class Deque:
@@ -31,21 +27,21 @@ class Deque:
 
     def push_back(self, value):
         if self.is_full():
-            raise DequeIsFullError
+            raise DequeIsFullError('Deque is full')
         self._items[self._tail] = value
         self._tail = (self._tail + 1) % self._limit
         self._size += 1
 
     def push_front(self, value):
         if self.is_full():
-            raise DequeIsFullError
+            raise DequeIsFullError('Deque is full')
         self._head = (self._head - 1) % self._limit
         self._items[self._head] = value
         self._size += 1
 
     def pop_front(self):
         if self.is_empty():
-            raise DequeIsEmptyError
+            raise DequeIsEmptyError('Deque is empty')
         value = self._items[self._head]
         self._head = (self._head + 1) % self._limit
         self._size -= 1
@@ -53,7 +49,7 @@ class Deque:
 
     def pop_back(self):
         if self.is_empty():
-            raise DequeIsEmptyError
+            raise DequeIsEmptyError('Deque is empty')
         self._tail = (self._tail - 1) % self._limit
         value = self._items[self._tail]
         self._items[self._tail] = None

@@ -1,10 +1,8 @@
-# ID посылки - 89260233
+# ID посылки - 89275578
 class StackIsEmptyError(Exception):
     """Exception raised if stack is empty."""
 
-    def __init__(self, message='Stack is empty'):
-        self.message = message
-        super().__init__(self.message)
+    pass
 
 
 class Stack:
@@ -20,7 +18,7 @@ class Stack:
     def pop(self):
         if not self.is_empty():
             return self._items.pop()
-        raise StackIsEmptyError
+        raise StackIsEmptyError('Stack is empty')
 
 
 operators = {
