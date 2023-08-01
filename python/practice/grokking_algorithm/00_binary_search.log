@@ -1,17 +1,3 @@
-INFO 2023-04-18 12:49:31: sorted_list=[1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109]
-INFO 2023-04-18 12:49:31: item=93, low=0, high=27
-INFO 2023-04-18 12:49:31: mid = (low + high) // 2: mid=13
-INFO 2023-04-18 12:49:31: guess = sorted_list[mid] guess=53
-INFO 2023-04-18 12:49:31: else: low=14
-INFO 2023-04-18 12:49:31: mid = (low + high) // 2: mid=20
-INFO 2023-04-18 12:49:31: guess = sorted_list[mid] guess=81
-INFO 2023-04-18 12:49:31: else: low=21
-INFO 2023-04-18 12:49:31: mid = (low + high) // 2: mid=24
-INFO 2023-04-18 12:49:32: guess = sorted_list[mid] guess=97
-INFO 2023-04-18 12:49:32: if guess 97 > item 93: high=23
-INFO 2023-04-18 12:49:32: mid = (low + high) // 2: mid=22
-INFO 2023-04-18 12:49:32: guess = sorted_list[mid] guess=89
-INFO 2023-04-18 12:49:32: else: low=23
-INFO 2023-04-18 12:49:32: mid = (low + high) // 2: mid=23
-INFO 2023-04-18 12:49:32: guess = sorted_list[mid] guess=93
-INFO 2023-04-18 12:49:32: return mid=23, sorted_list[mid]=93
+INFO 2023-08-01 12:40:23: mid = (low + high) // 2: mid=23
+INFO 2023-08-01 12:40:23: guess = sorted_list[mid] guess=93
+INFO 2023-08-01 12:40:23: return mid=23, sorted_list[mid]=93
