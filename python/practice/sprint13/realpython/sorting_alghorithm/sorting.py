@@ -1,3 +1,4 @@
+# https://realpython.com/sorting-algorithms-python/
 from random import randint
 from timeit import repeat
 
@@ -151,6 +152,42 @@ def run_sorting_algorithm(algorithm, array):
     print(f"Algorithm: {algorithm}. Minimum execution time: {min(times)}")
 
 
+def merge_sort_ya(array):
+    if len(array) <= 1:  # базовый случай рекурсии
+        return array
+    # запускаем сортировку рекурсивно на левой половине
+    left = merge_sort_ya(array[: len(array) // 2])
+    # запускаем сортировку рекурсивно на правой половине
+    right = merge_sort_ya(array[len(array) // 2:])
+    # заводим массив для результата сортировки
+    result = [0] * len(array)
+
+    # сливаем результаты
+    l, r, k = 0, 0, 0
+    while l < len(left) and r < len(right):
+        # выбираем, из какого массива забрать минимальный элемент
+        if left[l] < right[r]:
+            result[k] = left[l]
+            l += 1
+        else:
+            result[k] = right[r]
+            r += 1
+        k += 1
+
+    # Если один массив закончился раньше, чем второй, то
+    # переносим оставшиеся элементы второго массива в результирующий
+    while l < len(left):
+        result[k] = left[l]  # перенеси оставшиеся элементы left в result
+        l += 1
+        k += 1
+    while r < len(right):
+        result[k] = right[r]  # перенеси оставшиеся элементы right в result
+        r += 1
+        k += 1
+
+    return result
+
+
 ARRAY_LENGTH = 10000
 
 if __name__ == "__main__":
@@ -167,3 +204,4 @@ if __name__ == "__main__":
 # Algorithm: bubble_sort_wo_flag. Minimum execution time: 42.978700599996955
 # Algorithm: insertion_sort. Minimum execution time: 18.495433072996093
 # Algorithm: merge_sort. Minimum execution time: 0.27499082300346345
+# Algorithm: merge_sort_ya. Minimum execution time: 0.21489807599573396
