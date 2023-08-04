@@ -158,7 +158,7 @@ def merge_sort_ya(array):
     # запускаем сортировку рекурсивно на левой половине
     left = merge_sort_ya(array[: len(array) // 2])
     # запускаем сортировку рекурсивно на правой половине
-    right = merge_sort_ya(array[len(array) // 2:])
+    right = merge_sort_ya(array[len(array) // 2 :])
     # заводим массив для результата сортировки
     result = [0] * len(array)
 
@@ -188,6 +188,34 @@ def merge_sort_ya(array):
     return result
 
 
+def quicksort(array):
+    # If the input array contains fewer than two elements,
+    # then return it as the result of the function
+    if len(array) < 2:
+        return array
+
+    low, same, high = [], [], []
+
+    # Select your `pivot` element randomly
+    pivot = array[randint(0, len(array) - 1)]
+
+    for item in array:
+        # Elements that are smaller than the `pivot` go to
+        # the `low` list. Elements that are larger than
+        # `pivot` go to the `high` list. Elements that are
+        # equal to `pivot` go to the `same` list.
+        if item < pivot:
+            low.append(item)
+        elif item == pivot:
+            same.append(item)
+        elif item > pivot:
+            high.append(item)
+
+    # The final result combines the sorted `low` list
+    # with the `same` list and the sorted `high` list
+    return quicksort(low) + same + quicksort(high)
+
+
 ARRAY_LENGTH = 10000
 
 if __name__ == "__main__":
@@ -197,7 +225,7 @@ if __name__ == "__main__":
 
     # Call the function using the name of the sorting algorithm
     # and the array you just created
-    run_sorting_algorithm(algorithm="merge_sort", array=array)
+    run_sorting_algorithm(algorithm="quicksort", array=array)
 
 # Algorithm: sorted. Minimum execution time: 0.007853556002373807
 # Algorithm: bubble_sort. Minimum execution time: 42.844498752994696
@@ -205,3 +233,4 @@ if __name__ == "__main__":
 # Algorithm: insertion_sort. Minimum execution time: 18.495433072996093
 # Algorithm: merge_sort. Minimum execution time: 0.27499082300346345
 # Algorithm: merge_sort_ya. Minimum execution time: 0.21489807599573396
+# Algorithm: quicksort. Minimum execution time: 0.06938485099817626
