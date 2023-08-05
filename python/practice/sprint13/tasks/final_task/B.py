@@ -24,4 +24,5 @@ if __name__ == '__main__':
     num = int(input())
     array = [comparator(input().split()) for _ in range(num)]
     quicksort(array, low=0, high=len(array) - 1)
-    print(*(list(zip(*array))[-1]), sep='\n')
+    for player in array:
+        print(player[-1])
