@@ -1,5 +1,8 @@
-# ID посылки - 89459901
-def partition(array, low, high):
+# ID посылки - 89462513
+from typing import List, Union
+
+
+def partition(array: List[list], low: int, high: int) -> int:
     pivot = array[high]
     i = low
     for j in range(low, high):
@@ -10,19 +13,22 @@ def partition(array, low, high):
     return i
 
 
-def quicksort(array, low, high):
-    if low < high:
-        pi = partition(array, low, high)
-        quicksort(array, low, pi - 1)
-        quicksort(array, pi + 1, high)
+def quicksort(array: List[list], low: int, high: int) -> None:
+    if low > high:
+        return None
+    pi = partition(array, low, high)
+    quicksort(array, low, pi - 1)
+    quicksort(array, pi + 1, high)
 
 
-def comparator(player):
-    return [-int(player[1]), int(player[2]), player[0]]
+def comparator(player: List[str]) -> List[Union[int, str]]:
+    tasks_score, fines, username = -int(player[1]), int(player[2]), player[0]
+    return [tasks_score, fines, username]
 
 
 if __name__ == '__main__':
     num = int(input())
     array = [comparator(input().split()) for _ in range(num)]
     quicksort(array, low=0, high=len(array) - 1)
-    print(*(list(zip(*array))[-1]), sep='\n')
+    for player in array:
+        print(player[-1])

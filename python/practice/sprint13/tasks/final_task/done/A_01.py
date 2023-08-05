@@ -1,8 +1,5 @@
-# ID посылки - 89462578
-from typing import List
-
-
-def broken_search(nums: List[int], target: int) -> int:
+# ID посылки - 89459929
+def broken_search(nums, target) -> int:
     left, right = 0, len(nums) - 1
 
     while left <= right:
