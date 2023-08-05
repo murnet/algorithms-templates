@@ -1,3 +1,4 @@
+# ID посылки - 89459901
 def partition(array, low, high):
     pivot = array[high]
     i = low

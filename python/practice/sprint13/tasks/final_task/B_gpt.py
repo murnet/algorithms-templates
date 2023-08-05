@@ -1,12 +1,12 @@
 def partition(array, low, high):
     pivot = array[high]
-    i = low
+    i = low - 1
     for j in range(low, high):
         if array[j] <= pivot:
+            i = i + 1
             array[i], array[j] = array[j], array[i]
-            i += 1
-    array[i], array[high] = array[high], array[i]
-    return i
+    array[i + 1], array[high] = array[high], array[i + 1]
+    return i + 1
 
 
 def quicksort(array, low, high):
@@ -23,5 +23,20 @@ def comparator(player):
 if __name__ == '__main__':
     num = int(input())
     array = [comparator(input().split()) for _ in range(num)]
-    quicksort(array, low=0, high=len(array) - 1)
+    quicksort(array, low=0, high=len(array))
     print(*(list(zip(*array))[-1]), sep='\n')
+
+# Input:
+# 5
+# alla 4 100
+# gena 6 1000
+# gosha 2 90
+# rita 2 90
+# timofey 4 80
+#
+# Output:
+# gena
+# timofey
+# alla
+# gosha
+# rita
