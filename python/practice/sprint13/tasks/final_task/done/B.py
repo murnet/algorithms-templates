@@ -1,8 +1,8 @@
-# ID посылки - 89462513
+# ID посылки - 89462953
 from typing import List, Union
 
 
-def partition(array: List[list], low: int, high: int) -> int:
+def partition(array: List[Union[int, str]], low: int, high: int) -> int:
     pivot = array[high]
     i = low
     for j in range(low, high):
@@ -13,7 +13,7 @@ def partition(array: List[list], low: int, high: int) -> int:
     return i
 
 
-def quicksort(array: List[list], low: int, high: int) -> None:
+def quicksort(array: List[Union[int, str]], low: int, high: int) -> None:
     if low > high:
         return None
     pi = partition(array, low, high)
